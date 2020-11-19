@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+<h:head></h:head> 
+<body id="page-top"> 
+
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" >
+       <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Admin</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0"></hr>
+
+      <!-- Nav Item - Dashboard -->
+     
+      
+      <li class="nav-item active">
+      <h:link value="Dashboard" outcome="/views/dashboard" styleClass="nav-link" />
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider"></hr>
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+
+    
+      <li class="nav-item">
+        <h:link value="Job Order" outcome="/views/joborder" styleClass="nav-link" />
+      </li>
+
+     
+      <li class="nav-item">
+        <h:link value="Candidates" outcome="/views/candidates" styleClass="nav-link" />
+      </li>
+      
+       <li class="nav-item">
+        <h:link value="Company" outcome="/views/company" styleClass="nav-link" />
+      </li>
+      
+      
+      <!-- Divider -->
+      <hr class="sidebar-divider"/>
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Addons
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <h:link value="Recruiter" outcome="/views/recruiter" styleClass="nav-link" />
+      </li>
+
+     <li class="nav-item">
+         <h:link value="Activities" outcome="/views/activities" styleClass="nav-link" />
+      </li>
+    </ul>
+    
+   <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                  
+                </button>
+              </div>
+              </input>
+              </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+			
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><ui:insert name="username"></ui:insert></span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+              </a>
+             </li>
+             <li class="nav-item">
+			<h:form>
+				<h:commandLink value="Logout" action="#{loginBean.processLogOut()}" styleClass="nav-link"/>
+			</h:form>
+				
+			</li>
+
+</ul>
+</nav>
+
+        
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="row my-3">
+           	<h3 class="col-9 mr-6"></h3>
+			<div class="col">
+				<ui:insert name="buttonlink">
+					
+				</ui:insert>
+			</div>
+		  </div>
+				 <ui:insert name="content">
+					Dashboard
+				</ui:insert>
+        </div>
+           
+
+      </div>
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+</body>
+</html>

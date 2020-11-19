@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+<h:head>
+
+<!-- css files-->
+<h:outputStylesheet name="css/bootstrap.min.css" />
+<h:outputStylesheet name="css/sb-admin-2.min.css" />
+<h:outputStylesheet library="webjars" name="font-awesome/4.7.0/css/font-awesome.min-jsf.css" />
+<h:outputStylesheet name="vendor/datatables/dataTables.bootstrap4.min.css" />
+
+
+
+<!-- js files -->
+<h:outputScript name="vendor/jquery/jquery.min.js" />
+<h:outputScript name="vendor/bootstrap/js/bootstrap.bundle.min.js" />
+<h:outputScript name="vendor/jquery-easing/jquery.easing.min.js" />
+<h:outputScript name="js/sb-admin-2.min.js" />
+<h:outputScript name="vendor/datatables/jquery.dataTables.min.js" />
+<h:outputScript name="vendor/datatables/dataTables.bootstrap4.min.js" />
+<h:outputScript name="js/demo/datatables-demo.js" />
+</h:head>
+<body>
+<div class="container spad">
+
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-6 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0 offset-3">
+            
+            <div class="row">
+              
+              <div class="col-lg-8">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mt-2 mb-5">Login To Your Account</h1>
+                  </div>
+
+				<h:form>
+				<h:messages styleClass="text-danger"/>
+				<span class="text-danger">${errormessage!=null ? errormessage : ''}</span>
+					<div class="form-group mb-3">
+						<h:inputText value="#{loginBean.username}"  styleClass="form-control" 
+						validatorMessage="Please Enter User Name" id="name">
+						<f:validateRequired/>
+					</h:inputText>
+					</div>
+					<div class="form-group">
+						<h:inputSecret id="pass" value="#{loginBean.password}"  styleClass="form-control"
+				 validatorMessage="Password must be at least 3 characters" >
+					<f:validateLength minimum="3"></f:validateLength>
+				</h:inputSecret>
+					</div>
+					<h:commandButton action="#{loginBean.authenticateUser()}" actionListener="#{loginBean.checkUser()}" value="Login" styleClass="btn btn-primary form-control"></h:commandButton>
+				
+				</h:form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

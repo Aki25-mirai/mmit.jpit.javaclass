@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template="/template/template.xhtml">
+<ui:define name="username">#{loginBean.loginUser.name}</ui:define>
+<ui:define name="content">
+<div class="row">
+	<div class="col-6">
+		<div class="card shadow mb-5">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary text-center">Company Detail</h6>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-borderless table-detail">
+						<tr>
+							<td>Name:</td>
+							<td>#{companyBean.company.name}</td>
+						</tr>
+						<tr>
+							<td>Phone:</td>
+							<td>#{companyBean.company.phone1},#{companyBean.company.phone2}</td>
+						</tr>
+						<tr>
+							<td>Email:</td>
+							<td>#{companyBean.company.email}</td>
+						</tr>
+						<tr>
+							<td>Company Website Name:</td>
+							<td>#{companyBean.company.website}</td>
+						</tr>
+						<tr>
+							<td>Company Owner Name:</td>
+							<td>#{companyBean.company.ownerName}</td>
+						</tr>
+						<tr>
+							<td>Company Address:</td>
+							<td>#{companyBean.company.address}</td>
+						</tr>
+						<tr>
+							<td>Branch:</td>
+							<td>#{companyBean.company.township.name}</td>
+						</tr>
+						
+					</table>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="col-6">
+		<div class="card shadow mb-5">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary text-center">Other Information</h6>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-borderless table-detail">
+						<tr>
+							<td>Entry By:</td>
+							<td>#{companyBean.company.entryBy.name}</td>
+						</tr>
+						<tr>
+							<td>Entry Date:</td>
+							<td>#{companyBean.company.entryDate}</td>
+						</tr>
+						<tr>
+							<td>Modify By:</td>
+							<td>#{companyBean.company.modifyBy.name}</td>
+						</tr>
+						<tr>
+							<td>Remark</td>
+							<td>#{companyBean.company.remark}</td>
+						</tr>
+						<tr>
+							<td>Is this company popular right now?</td>
+							<td>#{companyBean.company.isHot}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</ui:define>
+</ui:composition>
+</body> 
+</html>

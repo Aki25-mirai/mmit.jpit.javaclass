@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template="/template/template.xhtml">
+<ui:define name="username">#{loginBean.loginUser.name}</ui:define>
+<ui:define name="buttonlink">
+	<h:link value="Add New Company" outcome="/views/company-add" styleClass="btn btn-primary"/>
+</ui:define>
+<ui:define name="content">
+	
+	<div class="card shadow mb-5">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">Company DataTable</h6>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<h:dataTable styleClass="table table-bordered " id="dataTable" value="#{companyBean.companyList}" var="c" >
+				<h:column>
+					<f:facet name="header">No.</f:facet>
+					#{table.rowIndex + 1}.
+				</h:column>
+				<h:column>
+					<f:facet name="header" >Name</f:facet>
+					#{c.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Phone</f:facet>
+					#{c.phone1} 
+				</h:column>
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+					#{c.email}
+				</h:column>
+				<h:column>
+					<f:facet name="header">City</f:facet>
+					#{c.township.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Entry By</f:facet>
+					#{c.entryBy.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Modify By</f:facet>
+					#{c.modifyBy.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Action</f:facet>
+					<h:link value="Edit" outcome="/views/company-add">
+					<f:param name="companyid" value="#{c.id}"></f:param>
+					</h:link>
+					
+					<h:link value="View" outcome="/views/companydetail">
+					<f:param name="companyid" value="#{c.id}"></f:param>
+					</h:link>
+					<h:form>
+					<h:commandLink action="#{companyBean.removeCompany(c.id)}" value="Remove" />
+					</h:form>
+				</h:column>
+				
+				</h:dataTable>
+			</div>
+		</div>
+	</div>
+                  
+</ui:define>
+</ui:composition>
+</body> 
+</html>
